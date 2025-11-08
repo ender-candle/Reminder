@@ -7,13 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -82,10 +80,10 @@ public class MainActivity extends AppCompatActivity {
         TextView_state = findViewById(R.id.state);
 
         // 按钮事件
-        button_csp.setOnClickListener(v -> {button_csp_click();});
-        button_over.setOnClickListener(v -> {button_over_click();});
-        findViewById(R.id.button_check).setOnClickListener(v -> {TextView_time_check.setVisibility(4 - TextView_time_check.getVisibility());});
-        button_dedicate.setOnClickListener(v -> {dedicate();});
+        button_csp.setOnClickListener(v -> button_csp_click());
+        button_over.setOnClickListener(v -> button_over_click());
+        findViewById(R.id.button_check).setOnClickListener(v -> TextView_time_check.setVisibility(4 - TextView_time_check.getVisibility()));
+        button_dedicate.setOnClickListener(v -> dedicate());
         button_rest.setOnClickListener(v -> rest());
         Switch_start_notify.setOnClickListener(v -> {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED){
