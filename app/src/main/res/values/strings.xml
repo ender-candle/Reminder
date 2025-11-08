@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Reminder</string>
+    <string name="title_activity_wake_up_screen">WakeUpScreen</string>
+
+    <string name="state_ready">未开始</string>
+    <string name="state_dedicate">专注中</string>
+    <string name="state_rest">休息中</string>
+    <string name="state_pause">暂停</string>
+
+    <string name="label_range">随机时间范围</string>
+    <string name="label_rest_time">休息时长</string>
+    <string name="label_start_rest">开始休息提示</string>
+    <string name="label_end_rest">结束休息提示</string>
+    <string name="label_second">秒</string>
+    <string name="label_tilde">~</string>
+    <string name="label_sound">铃声</string>
+    <string name="label_vibrate">震动</string>
+    <string name="label_notify">通知</string>
+    <string name="label_wake_up_screen">亮屏</string>
+    <string name="label_sound_choose">铃声选择</string>
+
+    <string name="button_confirm">确认</string>
+    <string name="button_start">开始</string>
+    <string name="button_pause">暂停</string>
+    <string name="button_over">结束</string>
+    <string name="button_check">查看</string>
+</resources>
