@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">Reminder</string>
+    <string name="app_name">十秒</string>
     <string name="title_activity_wake_up_screen">WakeUpScreen</string>
 
-    <string name="state_ready">未开始</string>
-    <string name="state_dedicate">专注中</string>
-    <string name="state_rest">休息中</string>
+    <string name="state_ready">未开始₍˄·͈༝·͈˄*₎◞ ̑̑</string>
+    <string name="state_dedicate">专注中(• x •)</string>
+    <string name="state_rest">休息中(﹡ˆoˆ﹡)</string>
     <string name="state_pause">暂停</string>
 
     <string name="label_range">随机时间范围</string>

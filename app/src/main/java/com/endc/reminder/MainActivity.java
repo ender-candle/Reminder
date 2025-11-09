@@ -135,19 +135,19 @@ public class MainActivity extends AppCompatActivity {
         switch (button_csp_state){
             case 0:
                 String error = "";
-                if (EditText_range1.getText().isEmpty()){
+                if (EditText_range1.getText().toString().isEmpty()){
                     error += "随机时间范围起始为空\n";
                 }
-                if (EditText_range2.getText().isEmpty()){
+                if (EditText_range2.getText().toString().isEmpty()){
                     error += "随机时间范围终值为空\n";
                 }
-                if (EditText_duration.getText().isEmpty()){
+                if (EditText_duration.getText().toString().isEmpty()){
                     error += "休息时间为空\n";
                 }
-                if (EditText_start_sound_position.getText().isEmpty()){
+                if (EditText_start_sound_position.getText().toString().isEmpty()){
                     error += "开始休息铃声选择为空\n";
                 }
-                if (EditText_end_sound_position.getText().isEmpty()){
+                if (EditText_end_sound_position.getText().toString().isEmpty()){
                     error += "结束休息铃声选择为空\n";
                 }
                 if (!error.isEmpty()){
@@ -307,10 +307,14 @@ public class MainActivity extends AppCompatActivity {
             startActivities(new Intent[]{new Intent(this, WakeUpScreen.class)});
         }
         if (Switch_start_notify.isChecked()) {
-            channel.notify(1, (new NotificationCompat.Builder(this, "reminder_channel")
-                    .setContentTitle("休息时间到")
-                    .setContentText("休息" + duration + "秒")
-                    .setSmallIcon(R.mipmap.ic_launcher)).build());
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED){
+                channel.notify(1, (new NotificationCompat.Builder(this, "reminder_channel")
+                        .setContentTitle("休息时间到")
+                        .setContentText("休息" + duration + "秒")
+                        .setSmallIcon(R.mipmap.ic_launcher)).build());
+            } else if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.POST_NOTIFICATIONS)){
+                ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.POST_NOTIFICATIONS}, 0);
+            }
         }
     }
     private void rest_end(){
@@ -337,10 +341,14 @@ public class MainActivity extends AppCompatActivity {
             startActivities(new Intent[]{new Intent(this, WakeUpScreen.class)});
         }
         if (Switch_end_notify.isChecked()) {
-            channel.notify(1, (new NotificationCompat.Builder(this, "reminder_channel")
-                    .setContentTitle("休息时间结束了")
-                    .setContentText("开始专注吧")
-                    .setSmallIcon(R.mipmap.ic_launcher)).build());
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED){
+                channel.notify(1, (new NotificationCompat.Builder(this, "reminder_channel")
+                        .setContentTitle("休息时间结束了")
+                        .setContentText("开始专注吧")
+                        .setSmallIcon(R.mipmap.ic_launcher)).build());
+            } else if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.POST_NOTIFICATIONS)){
+                ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.POST_NOTIFICATIONS}, 0);
+            }
         }
     }
 }
